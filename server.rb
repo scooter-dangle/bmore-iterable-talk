@@ -20,13 +20,16 @@ Thread.new {
         # print "Preparing response\n"
 
         routes = {
-            '/jQuery.js' => 'jquery.js',
+            '/jquery.js' => 'jquery.js',
+            '/google-web-fonts.css' => 'google-web-fonts.css',
+            '/Amethysta.ttf' => 'Amethysta.ttf',
+            '/Cabin.ttf' => 'Cabin.ttf',
+            '/Stint.ttf' => 'Stint.ttf',
             '/ws.js' => 'ws.js',
             '/d3.js' => 'd3.v2.min.js',
             '/logo.svg' => 'logo.svg',
             '/stylesheets/screen.css' => 'simple/stylesheets/screen.css',
             '/stylesheets/print.css' => 'simple/stylesheets/print.css',
-            #'/favicon.ico' => 'favicon.ico',
             '/index.html' => 'index.html',
         }
 

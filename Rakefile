@@ -13,17 +13,24 @@ end
 desc "Create '#{$OPTS_FILE}' with development settings if in doesn't yet exist"
 task :opts_init do
     unless File.exists? $OPTS_FILE
-        require 'json'
-        dev_opts = {
-            'http'=>{
-                'port'=>3030
-            },
-            'websocket'=>{
-                'host'=>'localhost',
-                'port'=>8080
-            }
-        }
-        IO.write $OPTS_FILE, JSON.dump(dev_opts)
+        dev_opts = <<EOS
+{
+    "http"=>{
+        "port": 3030
+    },
+    "websocket": {
+        "host": "localhost",
+        "port": 8080
+    },
+    // set "js_assets" to "remote" to load jQuery, d3.js, et al. from the Internets
+    // set "js_assets" to "local" to load them based on routes provided in the first
+    // half of server.rb (This is useful if you're developing on an non-networked
+    // device, but make sure you actually *have* them locally.) This option is used
+    // when index.html.haml is compiled to index.html by rake
+    "js_assets": "remote"
+}
+EOS
+        IO.write $OPTS_FILE, dev_opts
     end
 end
 
@@ -54,7 +61,7 @@ end
 
 desc 'Compile haml files'
 FileList['*.*.haml'].ext.each do |x|
-    task haml: x
+    task haml: [x, :opts_init]
 end
 
 # Learnt of rake's rules (and copied some code) from
