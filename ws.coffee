@@ -239,13 +239,13 @@ $(document).ready ->
 
     queue = []
 
-    reset_queue = -> queue = [queue.shift()]
+    reset_queue = -> queue = [ queue[0] ] if queue.length
 
     update_queue = (parcel) ->
         queue.unshift parcel unless queue[0] == parcel
 
     setInterval((->
-        update_data queue.pop() unless queue.length == 0
+        update_data queue.pop() if queue.length
     ), duration * 2)
 
     # TODO: possibly use a d3 selection instead of
