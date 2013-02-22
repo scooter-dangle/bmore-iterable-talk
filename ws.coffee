@@ -275,7 +275,7 @@ $(document).ready ->
     phone_home = (count = 0) ->
         debug "Connection attempt #{count}"
 
-        ws = new WebSocket 'ws://tr.ytofoc.us:443'
+        ws = new WebSocket 'ws://localhost:8080'
 
         ws.onmessage = (evt) -> route JSON.parse evt.data
 
