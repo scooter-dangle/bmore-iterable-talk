@@ -21,10 +21,10 @@ Thread.new {
 
         routes = {
             '/jquery.js' => 'assets/jquery.js',
-            '/google-web-fonts.css' => 'assets/google-web-fonts.css',
-            '/Amethysta.ttf' => 'assets/Amethysta.ttf',
-            '/Cabin.ttf' => 'assets/Cabin.ttf',
-            '/Stint.ttf' => 'assets/Stint.ttf',
+            '/stylesheets/google-web-fonts.css' => 'assets/google-web-fonts.css',
+            '/stylesheets/Amethysta.ttf' => 'assets/Amethysta.ttf',
+            '/stylesheets/Cabin.ttf' => 'assets/Cabin.ttf',
+            '/stylesheets/Stint.ttf' => 'assets/Stint.ttf',
             '/d3.js' => 'assets/d3.v2.min.js',
 
             '/stylesheets/screen.css' => 'simple/stylesheets/screen.css',
