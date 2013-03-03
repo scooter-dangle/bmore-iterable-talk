@@ -11,11 +11,11 @@ rule '.html' => '.html.haml' do |t|
 end
 
 desc "Create '#{$OPTS_FILE}' with development settings if in doesn't yet exist"
-task :opts_init do
+task $OPTS_FILE do
     unless File.exists? $OPTS_FILE
         dev_opts = <<EOS
 {
-    "http"=>{
+    "http": {
         "port": 3030
     },
     "websocket": {
@@ -35,7 +35,7 @@ EOS
 end
 
 desc "Update websocket host/port in 'ws.coffee' from '#{$OPTS_FILE}'"
-task opts_update: :opts_init do
+task opts_update: $OPTS_FILE do
     require 'json'
     ws_opts = (JSON.load IO.read $OPTS_FILE)['websocket']
     reg = %r{
@@ -61,8 +61,9 @@ end
 
 desc 'Compile haml files'
 FileList['*.*.haml'].ext.each do |x|
-    task haml: [x, :opts_init]
+    multitask haml: x
 end
+task 'index.html' => $OPTS_FILE
 
 # Learnt of rake's rules (and copied some code) from
 # github.com/ngauthier/coffeescript-ruby-pipeline
