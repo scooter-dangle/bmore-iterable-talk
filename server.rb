@@ -20,17 +20,20 @@ Thread.new {
         # print "Preparing response\n"
 
         routes = {
-            '/jquery.js' => 'jquery.js',
-            '/google-web-fonts.css' => 'google-web-fonts.css',
-            '/Amethysta.ttf' => 'Amethysta.ttf',
-            '/Cabin.ttf' => 'Cabin.ttf',
-            '/Stint.ttf' => 'Stint.ttf',
-            '/ws.js' => 'ws.js',
-            '/d3.js' => 'd3.v2.min.js',
-            '/logo.svg' => 'logo.svg',
+            '/jquery.js' => 'assets/jquery.js',
+            '/google-web-fonts.css' => 'assets/google-web-fonts.css',
+            '/Amethysta.ttf' => 'assets/Amethysta.ttf',
+            '/Cabin.ttf' => 'assets/Cabin.ttf',
+            '/Stint.ttf' => 'assets/Stint.ttf',
+            '/d3.js' => 'assets/d3.v2.min.js',
+
             '/stylesheets/screen.css' => 'simple/stylesheets/screen.css',
             '/stylesheets/print.css' => 'simple/stylesheets/print.css',
+
+            '/logo.svg' => 'logo.svg',
+
             '/index.html' => 'index.html',
+            '/ws.js' => 'ws.js',
         }
 
         routes.default = 'index.html'
