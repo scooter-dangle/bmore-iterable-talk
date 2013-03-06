@@ -97,5 +97,4 @@ task :server do
     sh 'ruby server.rb'
 end
 
-task default: [:comp, :server] do
-end
+task default: [:comp, :server]
